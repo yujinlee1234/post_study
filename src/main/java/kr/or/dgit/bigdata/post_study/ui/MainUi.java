@@ -11,17 +11,18 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class MainUi extends JPanel {
+public class MainUi extends JPanel implements ActionListener {
 	/* FIELDS */
 	private JTextField tfZipcode;
 	private JTextField tfAddress;
 	private JTextField tfSubAddress;
 	private JButton btnOk;
+	private JButton btnZipSearch;
 	/* CONSTRUCTOR */
 	public MainUi() {
 		setBorder(new EmptyBorder(20, 20, 20, 20));
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] {2, 1, 1};
+		gridBagLayout.columnWidths = new int[] {4, 1, 1};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0};
 		gridBagLayout.columnWeights = new double[]{4.0, 0.0, 0.0};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
@@ -44,7 +45,8 @@ public class MainUi extends JPanel {
 		add(tfZipcode, gbc_tfZipcode);
 		tfZipcode.setColumns(10);
 		
-		JButton btnZipSearch = new JButton("우편번호 검색");
+		btnZipSearch = new JButton("우편번호 검색");
+		btnZipSearch.addActionListener(this);
 		GridBagConstraints gbc_btnZipSearch = new GridBagConstraints();
 		gbc_btnZipSearch.fill = GridBagConstraints.BOTH;
 		gbc_btnZipSearch.insets = new Insets(0, 0, 5, 0);
@@ -98,4 +100,13 @@ public class MainUi extends JPanel {
 		add(btnOk, gbc_btnOk);
 	}
 
+
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnZipSearch) {
+			btnZipSearchActionPerformed(e);
+		}
+	}
+	protected void btnZipSearchActionPerformed(ActionEvent e) {
+		
+	}
 }

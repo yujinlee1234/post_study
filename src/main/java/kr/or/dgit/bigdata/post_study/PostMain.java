@@ -7,9 +7,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import kr.or.dgit.bigdata.post_study.ui.MainUi;
+
 public class PostMain extends JFrame {
 
 	private JPanel contentPane;
+	private MainUi mainUi;
 
 	/**
 	 * Launch the application.
@@ -38,6 +41,9 @@ public class PostMain extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		mainUi = new MainUi();
+		contentPane.add(mainUi, BorderLayout.CENTER);
+		pack();
 	}
 
 }
