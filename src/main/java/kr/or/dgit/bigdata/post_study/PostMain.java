@@ -2,12 +2,15 @@ package kr.or.dgit.bigdata.post_study;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import kr.or.dgit.bigdata.post_study.ui.MainUi;
+import kr.or.dgit.bigdata.post_study.ui.SearchUi;
 
 public class PostMain extends JFrame {
 
@@ -41,9 +44,14 @@ public class PostMain extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		mainUi = new MainUi();
+		mainUi = new MainUi() {			
+			@Override
+			protected void btnZipSearchActionPerformed(ActionEvent e)  {
+				SearchUi searchUi = new SearchUi();
+				searchUi.setMainUi(mainUi);
+			}
+		};
 		contentPane.add(mainUi, BorderLayout.CENTER);
 		pack();
 	}
-
 }
