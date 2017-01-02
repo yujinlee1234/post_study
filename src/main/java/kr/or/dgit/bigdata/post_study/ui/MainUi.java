@@ -4,6 +4,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTextField;
@@ -11,13 +13,23 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class MainUi extends JPanel implements ActionListener {
+public abstract class MainUi extends JPanel implements ActionListener {
 	/* FIELDS */
 	private JTextField tfZipcode;
 	private JTextField tfAddress;
 	private JTextField tfSubAddress;
 	private JButton btnOk;
 	private JButton btnZipSearch;
+
+	public void setTfZipcode(String zipCode) {
+		tfZipcode.setText(zipCode);
+	}
+
+	public void setTfAddress(String address) {
+		tfAddress.setText(address);
+	}
+
+
 	/* CONSTRUCTOR */
 	public MainUi() {
 		setBorder(new EmptyBorder(20, 20, 20, 20));
@@ -91,6 +103,7 @@ public class MainUi extends JPanel implements ActionListener {
 		tfSubAddress.setColumns(10);
 		
 		btnOk = new JButton("등록");
+		btnOk.addActionListener(this);
 		GridBagConstraints gbc_btnOk = new GridBagConstraints();
 		gbc_btnOk.fill = GridBagConstraints.BOTH;
 		gbc_btnOk.gridwidth = 2;
@@ -105,8 +118,14 @@ public class MainUi extends JPanel implements ActionListener {
 		if (e.getSource() == btnZipSearch) {
 			btnZipSearchActionPerformed(e);
 		}
+		if (e.getSource() == btnOk) {
+			btnOkActionPerformed(e);
+		}
 	}
-	protected void btnZipSearchActionPerformed(ActionEvent e) {
+	private void btnOkActionPerformed(ActionEvent e){
+		JOptionPane.showMessageDialog(null,tfZipcode.getText()+" "+tfAddress.getText()+", "+tfSubAddress.getText());
 		
 	}
+
+	protected abstract void btnZipSearchActionPerformed(ActionEvent e);
 }

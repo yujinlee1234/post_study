@@ -31,7 +31,7 @@ public class PostServiceTest {
 			System.out.println(p);
 		}
 	}
-	
+
 	@Test
 	public void testGetSido(){
 		List<String> list = postService.getSido();

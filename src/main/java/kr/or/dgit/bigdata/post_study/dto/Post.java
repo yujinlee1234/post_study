@@ -138,7 +138,7 @@ public class Post {
 		if(building2 != 0){
 			return String.format("%s %s %s %s-%s", sido, sigungu, doro, building1, building2);
 		}else{
-			return String.format("%s | %s %s %s %s", sido, sigungu, doro, building1);
+			return String.format("%s %s %s %s", sido, sigungu, doro, building1);
 		}
 	}
 }
