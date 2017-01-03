@@ -13,30 +13,28 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public abstract class MainUi extends JPanel implements ActionListener {
+@SuppressWarnings("serial")
+public class MainUi extends JPanel implements ActionListener {
 	/* FIELDS */
 	private JTextField tfZipcode;
 	private JTextField tfAddress;
 	private JTextField tfSubAddress;
 	private JButton btnOk;
 	private JButton btnZipSearch;
-
+	/* GET/SET */
 	public void setTfZipcode(String zipCode) {
 		tfZipcode.setText(zipCode);
 	}
-
 	public void setTfAddress(String address) {
 		tfAddress.setText(address);
 	}
-
-
 	/* CONSTRUCTOR */
 	public MainUi() {
 		setBorder(new EmptyBorder(20, 20, 20, 20));
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] {4, 1, 1};
+		gridBagLayout.columnWidths = new int[] {0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{4.0, 0.0, 0.0};
+		gridBagLayout.columnWeights = new double[]{3.0, 1.0, 1.0};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
@@ -126,5 +124,9 @@ public abstract class MainUi extends JPanel implements ActionListener {
 		JOptionPane.showMessageDialog(null,tfZipcode.getText()+" "+tfAddress.getText()+", "+tfSubAddress.getText());
 	}
 
-	protected abstract void btnZipSearchActionPerformed(ActionEvent e);
+	protected void btnZipSearchActionPerformed(ActionEvent e){
+		tfSubAddress.setText("");
+		SearchUi searchUi = new SearchUi();
+		searchUi.setMainUi(this);
+	}
 }

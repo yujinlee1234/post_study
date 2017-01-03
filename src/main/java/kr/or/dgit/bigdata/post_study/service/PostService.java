@@ -34,19 +34,12 @@ public class PostService {
 		}finally{
 			sqlSession.close();
 		}		
-	}
-	
+	}	
 	public List<String> getSido(){
-		if (logger.isDebugEnabled()) {
-			logger.debug("getSido() - start");
-		}
 		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
 		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
 		try{
 			List<String> returnList = postMapper.getSido();
-			if (logger.isDebugEnabled()) {
-				logger.debug("getSido() - end");
-			}
 			return returnList;
 		}finally{
 			sqlSession.close();

@@ -25,7 +25,7 @@ public class PostServiceTest {
 
 	@Test
 	public void testSelectBySidoro() {
-		List<Post> list = postService.selectBySidoro("세종특별자치시", "%");
+		List<Post> list = postService.selectBySidoro("경상북도", "선기로%");
 		Assert.assertNotNull(list);
 		for(Post p : list){
 			System.out.println(p);

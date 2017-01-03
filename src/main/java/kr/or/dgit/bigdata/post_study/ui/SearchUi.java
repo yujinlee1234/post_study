@@ -48,7 +48,7 @@ public class SearchUi extends JFrame implements ActionListener, MouseListener, F
 	/* CONSTRUCTOR */
 	public SearchUi() {
 		setTitle("우편번호 검색");
-		setBounds(500, 200, 450, 300);
+		setBounds(500, 200, 500, 400);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
 		setContentPane(contentPane);
@@ -57,9 +57,9 @@ public class SearchUi extends JFrame implements ActionListener, MouseListener, F
 		JPanel sPanel = new JPanel();
 		contentPane.add(sPanel, BorderLayout.NORTH);
 		GridBagLayout gbl_sPanel = new GridBagLayout();
-		gbl_sPanel.columnWidths = new int[] {50, 116, 50, 180, 116, 0};
+		gbl_sPanel.columnWidths = new int[] {0, 0, 0, 0, 0, 0};
 		gbl_sPanel.rowHeights = new int[]{23, 0};
-		gbl_sPanel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_sPanel.columnWeights = new double[]{5.0, 11.6, 5.0, 18.0, 11.6, Double.MIN_VALUE};
 		gbl_sPanel.rowWeights = new double[]{0.0, Double.MIN_VALUE};
 		sPanel.setLayout(gbl_sPanel);
 		
@@ -119,7 +119,6 @@ public class SearchUi extends JFrame implements ActionListener, MouseListener, F
 		sTable.setRowSelectionAllowed(true);		
 		
 		setVisible(true);
-		pack();
 	}
 	/* METHODS */
 	private void setCmbSido() {
@@ -149,14 +148,13 @@ public class SearchUi extends JFrame implements ActionListener, MouseListener, F
 		List<Post> list = getPostList();
 		datas = new String[list.size()][];
 		for(int i = 0 ; i < list.size() ; i++ ){
-			datas[i] = new String[]{list.get(i).getZipcode() , list.get(i).getAddress()};
+			datas[i] = list.get(i).toArray();
 		}
 		return datas;
 	}
 	private List<Post> getPostList() {
-		// TODO Auto-generated method stub
 		String sido = cmbSido.getSelectedItem()+"";
-		String doro = tfDoro.getText().trim()+"%";
+		String doro = tfDoro.getText().trim()+"%";	
 		return PostService.getInstance().selectBySidoro(sido, doro);
 	}
 	/* EVENT */
@@ -179,18 +177,21 @@ public class SearchUi extends JFrame implements ActionListener, MouseListener, F
 	public void mouseExited(MouseEvent e) {}
 	public void mousePressed(MouseEvent e) {}
 	public void mouseReleased(MouseEvent e) {}
+	
 	protected void sTableMouseClicked(MouseEvent e) {		
 		int index = sTable.getSelectedRow();
 		mainUi.setTfZipcode(datas[index][0]);
 		mainUi.setTfAddress(datas[index][1]);
 		setVisible(false);
 	}
+	
 	public void focusGained(FocusEvent arg0) {
 		if (arg0.getSource() == tfDoro) {
 			tfDoroFocusGained(arg0);
 		}
 	}
 	public void focusLost(FocusEvent arg0) {}
+	
 	protected void tfDoroFocusGained(FocusEvent arg0) {
 		tfDoro.setText("");
 	}

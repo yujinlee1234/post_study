@@ -13,7 +13,7 @@ import kr.or.dgit.bigdata.post_study.ui.MainUi;
 import kr.or.dgit.bigdata.post_study.ui.SearchUi;
 
 public class PostMain extends JFrame {
-
+	
 	private JPanel contentPane;
 	private MainUi mainUi;
 
@@ -45,13 +45,7 @@ public class PostMain extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		mainUi = new MainUi() {			
-			@Override
-			protected void btnZipSearchActionPerformed(ActionEvent e)  {
-				SearchUi searchUi = new SearchUi();
-				searchUi.setMainUi(mainUi);
-			}
-		};
+		mainUi = new MainUi();
 		contentPane.add(mainUi, BorderLayout.CENTER);
 		pack();
 	}
