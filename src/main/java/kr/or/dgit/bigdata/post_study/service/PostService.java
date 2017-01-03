@@ -11,7 +11,6 @@ import kr.or.dgit.bigdata.post_study.util.MybatisSqlSessionFactory;
 
 public class PostService {
 	private static final Logger logger = Logger.getLogger(PostService.class);
-
 	private static final PostService instance = new PostService();
 
 	public static PostService getInstance() {

@@ -113,7 +113,7 @@ public abstract class MainUi extends JPanel implements ActionListener {
 		add(btnOk, gbc_btnOk);
 	}
 
-
+	/* EVENT */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnZipSearch) {
 			btnZipSearchActionPerformed(e);
@@ -124,7 +124,6 @@ public abstract class MainUi extends JPanel implements ActionListener {
 	}
 	private void btnOkActionPerformed(ActionEvent e){
 		JOptionPane.showMessageDialog(null,tfZipcode.getText()+" "+tfAddress.getText()+", "+tfSubAddress.getText());
-		
 	}
 
 	protected abstract void btnZipSearchActionPerformed(ActionEvent e);
