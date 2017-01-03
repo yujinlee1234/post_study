@@ -43,7 +43,7 @@ public class SearchUi extends JFrame implements ActionListener, MouseListener {
 
 	public SearchUi() {
 		setTitle("우편번호 검색");
-		
+		setBounds(500, 200, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
 		setContentPane(contentPane);
@@ -103,6 +103,7 @@ public class SearchUi extends JFrame implements ActionListener, MouseListener {
 	protected void btnNewButtonActionPerformed(ActionEvent arg0) {
 		sTable.setModel(new DefaultTableModel(getData(), getColumn()));
 		setTableAlignment();
+		tableSetWidth(200,400);
 	}
 
 	private void setTableAlignment() {
@@ -112,7 +113,13 @@ public class SearchUi extends JFrame implements ActionListener, MouseListener {
 		dtcr.setHorizontalAlignment(SwingConstants.CENTER);
 		tcm.getColumn(0).setCellRenderer(dtcr);
 	}
+	public void tableSetWidth(int... width) {
+		TableColumnModel cModel = sTable.getColumnModel();
 
+		for (int i = 0; i < width.length; i++) {
+			cModel.getColumn(i).setPreferredWidth(width[i]);
+		}
+	}
 	private String[] getColumn() {
 		return new String[]{"우편번호","주소"};
 	}

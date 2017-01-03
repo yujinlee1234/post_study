@@ -6,6 +6,6 @@
 		select zipcode, sido, sigungu, doro, building1, building2 from post where sido=#{param1} and doro like #{param2}; 
 	</select>
 	<select id="getSido" resultType="String">
-		select sido from post group by sido;
+		select distinct sido from post;
 	</select>
 </mapper>

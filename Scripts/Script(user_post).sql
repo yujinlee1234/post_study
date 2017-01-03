@@ -137,3 +137,5 @@ CREATE INDEX idx_post_doro
 	);
 	
 	select * from post where sido like '세종%';
+	
+	select distinct sido from post;
