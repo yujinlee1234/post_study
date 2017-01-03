@@ -36,17 +36,16 @@ public class PostMain extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	@SuppressWarnings("serial")
 	public PostMain() {
 		setTitle("우편 번호");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(500, 200, 450, 300);
+		setBounds(500, 200, 400, 200);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		mainUi = new MainUi();
 		contentPane.add(mainUi, BorderLayout.CENTER);
-		pack();
+		
 	}
 }

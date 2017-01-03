@@ -21,13 +21,6 @@ public class MainUi extends JPanel implements ActionListener {
 	private JTextField tfSubAddress;
 	private JButton btnOk;
 	private JButton btnZipSearch;
-	/* GET/SET */
-	public void setTfZipcode(String zipCode) {
-		tfZipcode.setText(zipCode);
-	}
-	public void setTfAddress(String address) {
-		tfAddress.setText(address);
-	}
 	/* CONSTRUCTOR */
 	public MainUi() {
 		setBorder(new EmptyBorder(20, 20, 20, 20));
@@ -110,7 +103,13 @@ public class MainUi extends JPanel implements ActionListener {
 		gbc_btnOk.gridy = 3;
 		add(btnOk, gbc_btnOk);
 	}
-
+	/* METHODS */
+	public void setTfZipcode(String zipCode) {
+		tfZipcode.setText(zipCode);
+	}
+	public void setTfAddress(String address) {
+		tfAddress.setText(address);
+	}
 	/* EVENT */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnZipSearch) {

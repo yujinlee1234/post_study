@@ -136,9 +136,9 @@ public class SearchUi extends JFrame implements ActionListener, MouseListener, F
 		tcm.getColumn(0).setCellRenderer(dtcr);
 	}
 	public void tableSetWidth(int... width) {
-		TableColumnModel cModel = sTable.getColumnModel();
+		TableColumnModel tcm = sTable.getColumnModel();
 		for (int i = 0; i < width.length; i++) {
-			cModel.getColumn(i).setPreferredWidth(width[i]);
+			tcm.getColumn(i).setPreferredWidth(width[i]);
 		}
 	}
 	private String[] getColumn() {
@@ -160,10 +160,11 @@ public class SearchUi extends JFrame implements ActionListener, MouseListener, F
 	/* EVENT */
 	public void actionPerformed(ActionEvent arg0) {
 		if (arg0.getSource() == btnOk) {
-			btnNewButtonActionPerformed(arg0);
+			btnOkActionPerformed(arg0);
 		}
 	}
-	protected void btnNewButtonActionPerformed(ActionEvent arg0) {
+	protected void btnOkActionPerformed(ActionEvent arg0) {
+		//검색 버튼 눌렀을 때
 		sTable.setModel(new DefaultTableModel(getData(), getColumn()));
 		setTableAlignment();
 		tableSetWidth(200,400);
