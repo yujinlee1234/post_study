@@ -91,7 +91,7 @@ public class SearchUi extends JFrame implements ActionListener, MouseListener, F
 		gbc_lblDoro.gridx = 2;
 		gbc_lblDoro.gridy = 0;
 		sPanel.add(lblDoro, gbc_lblDoro);
-		tfDoro.setText("예)선기로 or 선기로 1길");
+		tfDoro.setText("예)선기로 or 선기로1길");
 		GridBagConstraints gbc_tfDoro = new GridBagConstraints();
 		gbc_tfDoro.fill = GridBagConstraints.BOTH;
 		gbc_tfDoro.insets = new Insets(0, 0, 0, 5);
