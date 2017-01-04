@@ -48,7 +48,6 @@ public class Post {
 	public void setBuilding1(int building1) {
 		this.building1 = building1;
 	}
-	수정수정수정수정수정수정
 	public int getBuilding2() {
 		return building2;
 	}

@@ -37,7 +37,6 @@ public class PostMain extends JFrame {
 	 * Create the frame.
 	 */
 	public PostMain() {
-		수정수정수정수정수정
 		setTitle("우편 번호");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(500, 200, 400, 200);
