@@ -102,6 +102,7 @@ public class MainUi extends JPanel implements ActionListener {
 		gbc_btnOk.gridx = 1;
 		gbc_btnOk.gridy = 3;
 		add(btnOk, gbc_btnOk);
+		
 	}
 	/* METHODS */
 	public void setTfZipcode(String zipCode) {
